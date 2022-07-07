@@ -1,11 +1,15 @@
-// TODO: write code here
+const inner = Array.from(document.getElementsByClassName('inner'));
+const imgLink = 'https://raw.githubusercontent.com/netology-code/ahj-homeworks/video/dom/pic/goblin.png';
 
-// comment this to pass build
-// const unusedVariable = 'variable';
-
-// for demonstration purpose only
-export default function demo(value) {
-  return value;
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
 }
 
-// console.log('app.js included');
+function isLoad() {
+  const i = getRandomInt(inner.length);
+  inner[i].innerHTML = `<img src="${imgLink}">`;
+  setInterval(() => {
+
+  }, 5000);
+}
+document.addEventListener('DOMContentLoaded', isLoad);
