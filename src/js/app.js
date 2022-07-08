@@ -1,15 +1,23 @@
 const inner = Array.from(document.getElementsByClassName('inner'));
 const imgLink = 'https://raw.githubusercontent.com/netology-code/ahj-homeworks/video/dom/pic/goblin.png';
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
+function getRandomInt(max, exep) {
+  if (exep === Math.floor(Math.random() * max)) {
+    getRandomInt(max, exep);
+  } else {
+    return Math.floor(Math.random() * max);
+  }
 }
 
-function isLoad() {
-  const i = getRandomInt(inner.length);
-  inner[i].innerHTML = `<img src="${imgLink}">`;
-  setInterval(() => {
+const i = Math.floor(Math.random() * inner.length);
+inner[i].innerHTML = `<img class='img' src="${imgLink}">`;
 
-  }, 5000);
+function changeCell() {
+  inner.forEach((i) => {
+    console.log(i.childElementCount);
+  });
+  const j = getRandomInt(inner.length, 5);
+  inner[j].innerHTML = `<img class='img' src="${imgLink}">`;
 }
-document.addEventListener('DOMContentLoaded', isLoad);
+changeCell();
+// setInterval(changeCell(), 5000);
