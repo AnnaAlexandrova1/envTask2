@@ -8,16 +8,17 @@ function getRandomInt(max, exep) {
     return Math.floor(Math.random() * max);
   }
 }
-
 const i = Math.floor(Math.random() * inner.length);
 inner[i].innerHTML = `<img class='img' src="${imgLink}">`;
 
 function changeCell() {
   inner.forEach((i) => {
-    console.log(i.childElementCount);
+    if (i.childElementCount === 1) {
+      i.innerHTML = '';
+      const j = getRandomInt(inner.length, i);
+      console.log(j);
+      inner[j].innerHTML = `<img class='img' src="${imgLink}">`;
+    }
   });
-  const j = getRandomInt(inner.length, 5);
-  inner[j].innerHTML = `<img class='img' src="${imgLink}">`;
 }
-changeCell();
-// setInterval(changeCell(), 5000);
+setInterval(changeCell(), 5000);
