@@ -1,7 +1,7 @@
 AHJ-1.1
-[![Build status](https://ci.appveyor.com/api/projects/status/x6hennoioafk9tus?svg=true)](https://ci.appveyor.com/project/AnnaAlexandrova1/env-task1-less2)
+[![Build status](https://ci.appveyor.com/api/projects/status/dxxys8w7iglojb9l?svg=true)](https://ci.appveyor.com/project/AnnaAlexandrova1/ahj-less2-task1)
 
-https://annaalexandrova1.github.io/env-Task1-less2/
+https://annaalexandrova1.github.io/ahj-less2-task1/
 
 
 Перемещение элемента
