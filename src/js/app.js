@@ -1,24 +1,23 @@
-const inner = Array.from(document.getElementsByClassName('inner'));
+const innerList = Array.from(document.getElementsByClassName('inner'));
 const imgLink = 'https://raw.githubusercontent.com/netology-code/ahj-homeworks/video/dom/pic/goblin.png';
+let index;
+let lastIndex;
 
-function getRandomInt(max, exep) {
-  if (exep === Math.floor(Math.random() * max)) {
-    getRandomInt(max, exep);
-  } else {
-    return Math.floor(Math.random() * max);
-  }
-}
-const i = Math.floor(Math.random() * inner.length);
-inner[i].innerHTML = `<img class='img' src="${imgLink}">`;
+index = Math.floor((Math.random() * innerList.length));
+innerList[index].innerHTML = `<img class='img' src="${imgLink}">`;
+lastIndex = index;
 
-function changeCell() {
-  inner.forEach((i) => {
-    if (i.childElementCount === 1) {
-      i.innerHTML = '';
-      const j = getRandomInt(inner.length, i);
-      console.log(j);
-      inner[j].innerHTML = `<img class='img' src="${imgLink}">`;
+setInterval(() => {
+  index = Math.floor((Math.random() * innerList.length));
+  if (index === lastIndex) {
+    index += 1;
+    if (index >= innerList.length) {
+      index = 0;
     }
-  });
-}
-setInterval(changeCell(), 5000);
+  }
+  innerList[index].innerHTML = `<img class='img' src="${imgLink}">`;
+  if (lastIndex >= 0) {
+    innerList[lastIndex].innerHTML = '';
+  }
+  lastIndex = index;
+}, 1000);
