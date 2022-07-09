@@ -26,11 +26,12 @@ module.exports = {
         ],
       },
       {
-				test: /\.(?:ico|png|jpg|jpeg|gif)$/i,
-
-				type:'asset/resource',
-
-  
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       },
       {
         test: /\.css$/,
